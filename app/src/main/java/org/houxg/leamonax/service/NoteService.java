@@ -146,7 +146,7 @@ public class NoteService {
                 } else {
                     content = convertToLocalImageLinkForRichText(localId, remoteNote.getContent());
                 }
-                XLog.i(TAG + "content=" + remoteNote.getContent());
+//                XLog.i(TAG + "content=" + remoteNote.getContent());
                 remoteNote.setContent(content);
                 remoteNote.setNoteAbstract(content.length() < 500 ? content : content.substring(0, 500));
                 remoteNote.update();

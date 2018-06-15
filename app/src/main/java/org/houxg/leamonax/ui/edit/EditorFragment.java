@@ -72,21 +72,27 @@ public class EditorFragment extends Fragment implements Editor.EditorListener {
     @Nullable
     @BindView(R.id.btn_bold)
     ToggleImageButton mBoldBtn;
+
     @Nullable
     @BindView(R.id.btn_italic)
     ToggleImageButton mItalicBtn;
+
     @Nullable
     @BindView(R.id.btn_quote)
     ToggleImageButton mQuoteBtn;
 
     @BindView(R.id.btn_heading)
     ToggleImageButton mHeadingBtn;
+
     @BindView(R.id.btn_order_list)
     ToggleImageButton mOrderListBtn;
+
     @BindView(R.id.btn_unorder_list)
     ToggleImageButton mUnorderListBtn;
+
     @BindView(R.id.btn_link)
     ToggleImageButton mLinkBtn;
+
     @BindView(R.id.web_editor)
     WebView mWebView;
 

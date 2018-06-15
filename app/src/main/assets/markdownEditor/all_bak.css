@@ -243,10 +243,10 @@ a {
 }
 
 blockquote {
-    /*background: #e8f0f5;*/
+    background: #e8f0f5;
     padding: 10px 10px 10px 20px;
     margin: 10px 0 10px 0;
-    /*border-radius: 2px;*/
+    border-radius: 2px;
 }
 blockquote p:last-child {
   margin: 0;
@@ -820,13 +820,13 @@ div.jGrowl div.jGrowl-closer {
 	font-size: 1.2em;
 }
 #wmd-input .h4 {
-	font-size: 1.2em;
+	font-size: 1.1em;
 }
 #wmd-input .h5 {
-	font-size: 1.2em;
+	font-size: 1em;
 }
 #wmd-input .h6 {
-	font-size: 1.2em;
+	font-size: 0.9em;
 }
 #wmd-input .md,
 #wmd-input .hr {

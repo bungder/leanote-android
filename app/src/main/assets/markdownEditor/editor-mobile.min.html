@@ -1,4 +1,92 @@
-<!DOCTYPE html><html lang=zh><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Leanote Markdown Editor</title></head><body class="clearfix writting"><div id=title placeholderText="Title" class=field contenteditable=false></div><div contenteditable=false id=separatorDiv><hr></div><div id=mdEditor><div class=layout-wrapper-l1><div class=layout-wrapper-l2><div class=layout-wrapper-l3><div id=left-column><pre id=wmd-input class=form-control><div id=wmd-input-sub class="editor-content mousetrap field" placeholderText="Content" contenteditable=false></div><div class=editor-margin></div></pre></div><div id=right-column><div class="preview-panel panel-open" id=preview-panel><div class=preview-container><div id=preview-contents><div id=wmd-preview class=preview-content></div></div></div></div></div></div><div class="navbar navbar-default" id=tools><div class=navbar-inner id=wmd-button-bar><ul class="nav left-buttons"><li class="wmd-button-group1 btn-group"></li></ul><ul class="nav left-buttons"><li class="wmd-button-group2 btn-group"></li></ul><ul class="nav left-buttons"><li class="wmd-button-group3 btn-group"></li></ul><ul class="nav left-buttons"><li class="wmd-button-group5 btn-group"></li></ul></div></div></div></div></div><link rel=stylesheet href=all.css><script src=all.js></script>
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset=utf-8>
+    <meta http-equiv=X-UA-Compatible content="IE=edge">
+    <meta name=viewport
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Leanote Markdown Editor</title>
+    <style>
+        code{
+            font-family: monospace,monospace;
+            background-color: #f9f2f4;
+            color: #c7254e;
+            font-size: 90%;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        pre code{
+            font-family: monospace,monospace;
+            background-color: inherit;
+            border-radius: 0;
+            color: inherit;
+            padding: 0;
+        }
+        pre.prettyprint * {
+    font-family: Monaco, Menlo, 'Ubuntu Mono', Consolas, source-code-pro, 'Hiragino Sans GB', 'Microsoft YaHei', 微软雅黑;
+}
+blockquote {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 15px 20px;
+    border-left: 10px solid #D6DBDF;
+    background: rgba(102,128,153,.05);
+}
+
+
+    </style>
+</head>
+<body class="clearfix writting">
+<div id=title placeholderText="Title" class=field contenteditable=false></div>
+<div contenteditable=false id=separatorDiv>
+    <hr>
+</div>
+<div id=mdEditor>
+    <div class=layout-wrapper-l1>
+        <div class=layout-wrapper-l2>
+            <div class=layout-wrapper-l3>
+                <div id=left-column>
+                    <pre id=wmd-input class=form-control><div id=wmd-input-sub
+                                                              class="editor-content mousetrap field"
+                                                              placeholderText="Content"
+                                                              contenteditable=false></div><div
+                            class=editor-margin></div></pre>
+                </div>
+                <div id=right-column>
+                    <div class="preview-panel panel-open" id=preview-panel>
+                        <div class=preview-container>
+                            <div id=preview-contents>
+                                <div id=wmd-preview class=preview-content></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar navbar-default" id=tools>
+                <div class=navbar-inner id=wmd-button-bar>
+                    <ul class="nav left-buttons">
+                        <li class="wmd-button-group1 btn-group"></li>
+                    </ul>
+                    <ul class="nav left-buttons">
+                        <li class="wmd-button-group2 btn-group"></li>
+                    </ul>
+                    <ul class="nav left-buttons">
+                        <li class="wmd-button-group3 btn-group"></li>
+                    </ul>
+                    <ul class="nav left-buttons">
+                        <li class="wmd-button-group5 btn-group"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<link rel="stylesheet" href="fromDesktop/bootstrap.css">
+<link rel="stylesheet" href="fromDesktop/meditor.css">
+<link rel="stylesheet" href="fromDesktop/themes/markdown/default/index.css">
+<link rel="stylesheet" href="fromDesktop/themes/default.css">-->
+<link rel=stylesheet href=all.css>
+<script src=all.js></script>
 <script>
     // lang
     var ms = location.href.match(/lang=(.+)/);
@@ -17,5 +105,10 @@
         hostApp.loadCompleted();
         return "";
     }
+
+
+
+
 </script>
-</body></html>
+</body>
+</html>

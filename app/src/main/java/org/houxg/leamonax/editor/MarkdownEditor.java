@@ -5,7 +5,10 @@ import android.annotation.SuppressLint;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 
+import com.elvishew.xlog.XLog;
+
 import org.houxg.leamonax.utils.HtmlUtils;
+import org.houxg.leamonax.utils.Logger;
 
 import java.util.Locale;
 
@@ -14,6 +17,7 @@ import static android.view.View.SCROLLBARS_OUTSIDE_OVERLAY;
 public class MarkdownEditor extends Editor {
     private static final String TAG = "MarkdownEditor:";
     private WebView mWebView;
+    private Logger logger;
 
     public MarkdownEditor(Editor.EditorListener listener) {
         super(listener);
@@ -23,12 +27,14 @@ public class MarkdownEditor extends Editor {
     @Override
     public void init(WebView view) {
         mWebView = view;
+        logger = Logger.getInstance(TAG);
         mWebView.setScrollBarStyle(SCROLLBARS_OUTSIDE_OVERLAY);
         mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.addJavascriptInterface(new HostApp(), "hostApp");
         mWebView.setWebViewClient(new Editor.EditorClient());
         mWebView.setWebChromeClient(new WebChromeClient());
         mWebView.loadUrl("file:///android_asset/markdownEditor/editor-mobile.min.html?lang=" + Locale.getDefault().getLanguage());
+        logger.info("--------------------------------------");
     }
 
     private void execJs(final String script) {
@@ -63,6 +69,7 @@ public class MarkdownEditor extends Editor {
 
     @Override
     public void setContent(String content) {
+        logger.info(" ---------- content: " + content);
         execJs(String.format(Locale.US, "ZSSEditor.getField('mdEditor').setHTML(\"%s\");", HtmlUtils.escapeHtml(content)));
     }
 

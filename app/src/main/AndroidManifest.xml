@@ -61,7 +61,7 @@
         <activity
             android:name=".ui.PictureViewerActivity"
             android:label="@string/edit"
-            android:screenOrientation="portrait" />
+             />
 
         <service
             android:name=".background.NoteSyncService"
