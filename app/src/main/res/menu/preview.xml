@@ -22,4 +22,9 @@
         app:showAsAction="never"
         android:title="Get"/>
 
+    <item
+        android:id="@+id/action_get_url"
+        app:showAsAction="never"
+        android:title="Copy URL"/>
+
 </menu>

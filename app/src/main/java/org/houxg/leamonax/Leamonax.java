@@ -5,6 +5,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.res.Resources;
 import android.text.TextUtils;
+import android.webkit.WebView;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -49,9 +50,10 @@ public class Leamonax extends Application {
                 .installDefaultEventBus();
         FlowManager.init(new FlowConfig.Builder(this).build());
         JodaTimeAndroid.init(this);
-        if (BuildConfig.DEBUG) {
-            Stetho.initializeWithDefaults(this);
-        }
+        WebView.setWebContentsDebuggingEnabled(true);
+//        if (BuildConfig.DEBUG) {
+//            Stetho.initializeWithDefaults(this);
+//        }
         ISNav.getInstance().init(new ImageLoader() {
             @Override
             public void displayImage(Context context, String path, ImageView imageView) {

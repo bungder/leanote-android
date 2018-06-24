@@ -36,9 +36,13 @@ body {
 }
 
 h1,
-h2,
-h3 {
+h2 {
 	font-weight: 300;
+}
+
+h4, h5, h6{
+    font-size: 1.17em;
+    font-weight: 900;
 }
 
 #left-column, #wmd-input,
@@ -454,6 +458,8 @@ dd {
 /* Table style */
 table {
 	margin-bottom: 20px;
+	border-collapse: collapse;
+    border-spacing: 0;
 }
 table th,
 table td {
@@ -1034,4 +1040,14 @@ div.jGrowl div.jGrowl-closer {
 #mdEditor .modal-document-manager .btn-default:active,
 .open #mdEditor .modal-document-manager .btn-default.dropdown-toggle {
 	border-color: rgba(128, 128, 128, 0.1);
+}
+
+#preview-contents table td, #preview-contents table th {
+    padding: 8px;
+    line-height: 20px;
+    vertical-align: top;
+    border: 1px solid #ddd;
+}
+#preview-contents table tbody>tr:nth-child(2n+1)>td, #preview-contents table tbody>tr:nth-child(2n+1)>th {
+    background-color: rgba(102,128,153,.05);
 }

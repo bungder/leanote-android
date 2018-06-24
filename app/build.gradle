@@ -95,8 +95,8 @@ dependencies {
     compile 'jp.wasabeef:glide-transformations:2.0.1'
     compile 'com.android.support:support-v13:26.1.0'
     compile 'com.github.xingstarx:ImageSelector:master-SNAPSHOT'
-    compile 'com.facebook.stetho:stetho:1.4.2'
-    compile 'com.facebook.stetho:stetho-okhttp3:1.4.2'
+    compile 'com.facebook.stetho:stetho:1.5.0'
+    compile 'com.facebook.stetho:stetho-okhttp3:1.5.0'
     compile 'com.github.houxg:FlexLayout:1.2'
 
     compile 'net.danlew:android.joda:2.9.5'

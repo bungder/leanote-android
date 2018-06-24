@@ -479,6 +479,10 @@ public class EditorFragment extends Fragment implements Editor.EditorListener {
         }
     }
 
+    public String getWebviewURL(){
+        return mWebView.getUrl();
+    }
+
     private void refreshFormatStatus(Map<Editor.Format, Object> formatStatus) {
         for (Map.Entry<Editor.Format, Object> entry : formatStatus.entrySet()) {
             switch (entry.getKey()) {

@@ -1,5 +1,7 @@
 package org.houxg.leamonax.ui;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -10,8 +12,10 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.elvishew.xlog.XLog;
+import com.raizlabs.android.dbflow.StringUtils;
 import com.tencent.bugly.crashreport.CrashReport;
 
 import org.houxg.leamonax.BuildConfig;
@@ -113,6 +117,23 @@ public class NotePreviewActivity extends BaseActivity implements EditorFragment.
                 return true;
             case R.id.action_print:
                 XLog.i(TAG + mNote.getContent());
+            case R.id.action_get_url:
+//                XLog.i(TAG + "------" + mEditorFragment.getWebviewURL());
+                String url = mEditorFragment.getWebviewURL();
+                Context context = getApplicationContext();
+                int duration = Toast.LENGTH_SHORT;
+                String info = "";
+                if (StringUtils.isNullOrEmpty(url)) {
+                    info = "URL为空";
+                } else if (url.startsWith("file")) {
+                    info = "目前打开的是本地文件";
+                } else {
+                    ClipboardManager cmb = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                    cmb.setPrimaryClip(ClipData.newPlainText("", url));
+                    info = "URL已经复制到粘贴板";
+                }
+                Toast toast = Toast.makeText(context, info, duration);
+                toast.show();
         }
         return super.onOptionsItemSelected(item);
     }
