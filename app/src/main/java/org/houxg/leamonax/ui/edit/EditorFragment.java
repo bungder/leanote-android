@@ -160,6 +160,7 @@ public class EditorFragment extends Fragment implements Editor.EditorListener {
         webSettings.setSupportZoom(true);
         // 设置出现缩放工具
         webSettings.setBuiltInZoomControls(true);
+        webSettings.setDisplayZoomControls(false);
         //设置可在大视野范围内上下左右拖动，并且可以任意比例缩放
         webSettings.setUseWideViewPort(true);
         //设置默认加载的可视范围是大视野范围
