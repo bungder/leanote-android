@@ -134,6 +134,20 @@ public class NotePreviewActivity extends BaseActivity implements EditorFragment.
                 }
                 Toast toast = Toast.makeText(context, info, duration);
                 toast.show();
+
+            case R.id.action_open_with_browser:
+                String url2 = mEditorFragment.getWebviewURL();
+                if (StringUtils.isNullOrEmpty(url2)) {
+                    Toast.makeText(getApplicationContext(), "URL为空", Toast.LENGTH_SHORT).show();
+                } else if (url2.startsWith("file")) {
+                    Toast.makeText(getApplicationContext(), "目前打开的是本地文件", Toast.LENGTH_SHORT).show();
+                }else {
+                    Uri uri = Uri.parse(url2);
+                    Intent intent = new Intent();
+                    intent.setAction("android.intent.action.VIEW");
+                    intent.setData(uri);
+                    startActivity(intent);
+                }
         }
         return super.onOptionsItemSelected(item);
     }

@@ -20,6 +20,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.EditText;
 import android.widget.PopupWindow;
@@ -152,7 +153,19 @@ public class EditorFragment extends Fragment implements Editor.EditorListener {
         View formatBar = inflater.inflate(formatRestId, formatBarContainer, false);
         formatBarContainer.addView(formatBar, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         ButterKnife.bind(this, view);
+
+        WebSettings webSettings = mWebView.getSettings();//WebSettings.getDefaultUserAgent(getContext());
         mToolContainer.setVisibility(mIsEditingEnabled ? View.VISIBLE : View.GONE);
+        // 设置可以支持缩放
+        webSettings.setSupportZoom(true);
+        // 设置出现缩放工具
+        webSettings.setBuiltInZoomControls(true);
+        //设置可在大视野范围内上下左右拖动，并且可以任意比例缩放
+        webSettings.setUseWideViewPort(true);
+        //设置默认加载的可视范围是大视野范围
+        webSettings.setLoadWithOverviewMode(true);
+        //自适应屏幕
+        webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
         mEditor.init(mWebView);
         return view;
     }
