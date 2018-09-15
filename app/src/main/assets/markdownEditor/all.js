@@ -32599,6 +32599,28 @@ define('editor',[
             return result;
         };
 
+        var resetTitleCounter = function(level, secNames){
+            var targetList = $(".wmd-preview-section "+level);
+            if(undefined != targetList && null != targetList){
+                for(var i = 0; i < targetList.length; i++){
+                     $(targetList[i].parentNode).css("counter-reset", secNames);
+                }
+            }
+        }
+
+        var autoNumTitle = function(){
+            // $($(".wmd-preview-section h1")[1].parentNode).css("counter-reset", "sec2 sec3 sec4 sec5 sec6 sec7");
+            resetTitleCounter("h1", "sec2 sec3 sec4 sec5 sec6 sec7 sec8 sec9");
+            resetTitleCounter("h2", "sec3 sec4 sec5 sec6 sec7 sec8 sec9");
+            resetTitleCounter("h3", "sec4 sec5 sec6 sec7 sec8 sec9");
+            resetTitleCounter("h4", "sec5 sec6 sec7 sec8 sec9");
+            resetTitleCounter("h5", "sec6 sec7 sec8 sec9");
+            resetTitleCounter("h6", "sec7 sec8 sec9");
+            resetTitleCounter("h7", "sec8 sec9");
+            resetTitleCounter("h8", "sec9");
+            console.log('%c counter-reset','background:#F781F3;color:#0101DF', '生效');
+        }
+
         var makePreviewHtml = function () {
 
             // If there is no registered preview panel
@@ -32668,6 +32690,7 @@ define('editor',[
             if (requiresRefresh) {
                 oldInputText = "";
                 makePreviewHtml();
+                autoNumTitle();
             }
             else {
                 applyTimeout();

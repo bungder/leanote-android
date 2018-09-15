@@ -1051,3 +1051,121 @@ div.jGrowl div.jGrowl-closer {
 #preview-contents table tbody>tr:nth-child(2n+1)>td, #preview-contents table tbody>tr:nth-child(2n+1)>th {
     background-color: rgba(102,128,153,.05);
 }
+
+
+#preview-contents {
+    counter-reset: sec1 sec2 sec3 sec4 sec5 sec6 sec7;
+}
+h1{
+    counter-reset: sec2 sec3 sec4 sec5 sec6 sec7 !important;
+}
+h2{
+    counter-reset: sec3 sec4 sec5 sec6 sec7 !important;
+}
+h3{
+    counter-reset: sec4 sec5 sec6 sec7 !important;
+}
+h4 {
+    counter-reset: sec5 sec6 sec7 !important;
+}
+h5 {
+    counter-reset: sec6 sec7 !important;
+}
+h6 {
+    counter-reset: sec7 !important;
+}
+#preview-contents h1:before{
+    counter-increment: sec1;
+    content: counter(sec1)" ";
+}
+#preview-contents h2:before{
+    counter-increment: sec2;
+    content: counter(sec1)"."counter(sec2)" ";
+}
+#preview-contents h3:before{
+    counter-increment: sec3;
+    content: counter(sec1)"."counter(sec2)"."counter(sec3)" ";
+}
+#preview-contents h4:before{
+    counter-increment: sec4;
+    content: counter(sec1)"."counter(sec2)"."counter(sec3)"."counter(sec4)" ";
+}
+#preview-contents h5:before{
+    counter-increment: sec5;
+    content: counter(sec1)"."counter(sec2)"."counter(sec3)"."counter(sec4)"."counter(sec5)" ";
+}
+#preview-contents h6:before{
+    counter-increment: sec6;
+    content: counter(sec1)"."counter(sec2)"."counter(sec3)"."counter(sec4)"."counter(sec5)"."counter(sec6)" ";
+}
+#preview-contents h7:before{
+    counter-increment: sec7;
+    content: counter(sec1)"."counter(sec2)"."counter(sec3)"."counter(sec4)"."counter(sec5)"."counter(sec6)"."counter(sec7)" ";
+}
+#preview-contents h1,h2,h3,h4,h5,h6,h7{ 
+    font-weight: 600 !important; 
+}
+
+h1 {
+    font-size: 26px !important;
+}
+
+#preview-contents h3,h4,h5,h6,h7{ 
+    font-size: 20px !important; 
+}
+/* 目录的编号 */
+.toc ul {
+    /* 开始计数 */
+    counter-reset: section;                
+    list-style-type: none;
+    margin-left: -0px;
+    -webkit-padding-start: 20px;
+}
+.toc li::before {
+    counter-increment: section;           
+    content: counters(section,".") " ";  
+}
+.toc li{
+    list-style-type: disc;
+}
+#leanoteNavContentMd .toc{
+    padding-left: 25px;
+}
+#leanoteNavContentMd .toc li, #leanoteNavContentMd .toc ul{
+    -webkit-padding-start: 0px;
+    list-style:none;margin:0px;padding:0px;
+}
+body *{
+    font-family: Source Han Sans SC, PingFang SC,Microsoft YaHei,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif
+}
+#preview-contents *, #leanoteNavContentMd *{
+    font-family: 'Times New Roman', Source Han Sans SC, PingFang SC,Microsoft YaHei,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;
+}
+/*.linenums *,code, code span{
+    font-family: Menlo,Consolas, Hiragino, Source Han Sans SC, PingFang SC,Microsoft YaHei,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif !important
+}*/
+blockquote p {
+    font-weight: inherit;
+}
+#preview-contents p, #leanoteNavContentMd p{
+    font-weight:400 !important;
+}
+code{
+    font-family: Consolas,monospace !important;
+    background-color: #f9f2f4;
+    color: #c7254e;
+    font-size: 90%;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+pre code{
+    font-family: Consolas,monospace !important;
+    background-color: inherit;
+    border-radius: 0;
+    color: inherit;
+    padding: 0;
+    white-space: pre-wrap;
+}
+pre.prettyprint * {
+    font-family: Monaco, Menlo, 'Ubuntu Mono', Consolas, source-code-pro, 'Hiragino Sans GB', 'Microsoft YaHei', 微软雅黑 !important;
+}
